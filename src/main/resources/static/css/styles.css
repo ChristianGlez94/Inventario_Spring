@@ -6,7 +6,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 header {
@@ -49,13 +49,14 @@ nav ul li a:hover {
 }
 
 section {
-    width: 90%;
-    max-width: 800px;
+    width: 100%;
+    max-width: 900px;
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
+    flex-grow: 1;
 }
 
 .form-grid {
@@ -188,5 +189,18 @@ footer {
 }
 
 .btn-delete:hover {
+    background-color: #c82333;
+}
+
+.btn-logout {
+    background-color: #dc3545;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
     background-color: #c82333;
 }
