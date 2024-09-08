@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Nuevo Producto</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Agregar Nuevo Producto</h1>
+    <form id="productForm">
+        <h2>Información del Producto</h2>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigo" name="codigo" required><br><br>
+
+        <label for="descripcion">Descripción:</label>
+        <textarea id="descripcion" name="descripcion"></textarea><br><br>
+
+        <label for="precio">Precio:</label>
+        <input type="number" id="precio" name="precio" required><br><br>
+
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" name="cantidad" required><br><br>
+
+        <h2>Información de Ubicación</h2>
+        <label for="sector">Sector:</label>
+        <input type="text" id="sector" name="sector" required><br><br>
+
+        <label for="seccion">Sección:</label>
+        <input type="text" id="seccion" name="seccion" required><br><br>
+
+        <label for="codigo_barras">Código de Barras:</label>
+        <input type="text" id="codigo_barras" name="codigo_barras"><br><br>
+
+        <h2>Movimiento de Inventario</h2>
+        <label for="tipo_movimiento">Tipo de Movimiento:</label>
+        <select id="tipo_movimiento" name="tipo_movimiento" required>
+            <option value="INGRESO">Ingreso</option>
+            <option value="SALIDA">Salida</option>
+        </select><br><br>
+
+        <label for="movimiento_cantidad">Cantidad:</label>
+        <input type="number" id="movimiento_cantidad" name="movimiento_cantidad" required><br><br>
+
+        <button type="submit">Agregar Producto</button>
+    </form>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>
