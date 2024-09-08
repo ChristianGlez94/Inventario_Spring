@@ -1,30 +1,89 @@
-CREATE DATABASE inventario;
-
+-- Asegúrate de que estás usando la base de datos correcta
 USE inventario;
 
-CREATE TABLE productos (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(255) NOT NULL,
-    codigo VARCHAR(100) NOT NULL,
-    descripcion TEXT,
-    precio DECIMAL(10, 2) NOT NULL,
-    cantidad INT NOT NULL
-);
+-- Borrar las tablas si ya existen para evitar conflictos
+DROP TABLE IF EXISTS movimiento_inventario;
+DROP TABLE IF EXISTS producto;
+DROP TABLE IF EXISTS ubicacion;
 
-CREATE TABLE ubicaciones (
+-- Crear la tabla de Ubicaciones
+CREATE TABLE IF NOT EXISTS ubicacion (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     sector VARCHAR(100) NOT NULL,
     seccion VARCHAR(100) NOT NULL,
     codigo_barras VARCHAR(255)
 );
 
-CREATE TABLE movimientos_inventario (
+-- Crear la tabla de Productos
+CREATE TABLE IF NOT EXISTS producto (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    codigo VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10, 2) NOT NULL,
+    cantidad INT NOT NULL,
+    ubicacion_id BIGINT,
+    FOREIGN KEY (ubicacion_id) REFERENCES ubicacion(id)
+);
+
+-- Crear la tabla de Movimientos de Inventario
+CREATE TABLE IF NOT EXISTS movimiento_inventario (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     tipo_movimiento ENUM('INGRESO', 'SALIDA') NOT NULL,
     cantidad INT NOT NULL,
     producto_id BIGINT,
     ubicacion_id BIGINT,
-    FOREIGN KEY (producto_id) REFERENCES productos(id),
-    FOREIGN KEY (ubicacion_id) REFERENCES ubicaciones(id)
+    FOREIGN KEY (producto_id) REFERENCES producto(id),
+    FOREIGN KEY (ubicacion_id) REFERENCES ubicacion(id)
 );
+
+-- Insertar 10 registros de ubicaciones
+INSERT INTO ubicacion (sector, seccion, codigo_barras) VALUES
+('Sector A', 'Sección 1', '1234567890123'),
+('Sector B', 'Sección 2', '2234567890123'),
+('Sector C', 'Sección 3', '3234567890123'),
+('Sector D', 'Sección 4', '4234567890123'),
+('Sector E', 'Sección 5', '5234567890123'),
+('Sector F', 'Sección 6', '6234567890123'),
+('Sector G', 'Sección 7', '7234567890123'),
+('Sector H', 'Sección 8', '8234567890123'),
+('Sector I', 'Sección 9', '9234567890123'),
+('Sector J', 'Sección 10', '1034567890123');
+
+-- Insertar 10 productos, asignando una ubicación a cada uno
+-- Verifica que los IDs de las ubicaciones existen antes de ejecutar esta parte
+INSERT INTO producto (nombre, codigo, descripcion, precio, cantidad, ubicacion_id) VALUES
+('Producto 1', 'PROD001', 'Descripción del producto 1', 100.00, 50, 1),
+('Producto 2', 'PROD002', 'Descripción del producto 2', 200.00, 40, 2),
+('Producto 3', 'PROD003', 'Descripción del producto 3', 150.00, 30, 3),
+('Producto 4', 'PROD004', 'Descripción del producto 4', 250.00, 60, 4),
+('Producto 5', 'PROD005', 'Descripción del producto 5', 300.00, 70, 5),
+('Producto 6', 'PROD006', 'Descripción del producto 6', 350.00, 20, 6),
+('Producto 7', 'PROD007', 'Descripción del producto 7', 400.00, 80, 7),
+('Producto 8', 'PROD008', 'Descripción del producto 8', 450.00, 90, 8),
+('Producto 9', 'PROD009', 'Descripción del producto 9', 500.00, 100, 9),
+('Producto 10', 'PROD010', 'Descripción del producto 10', 550.00, 110, 10);
+
+-- Insertar movimientos de inventario (al menos una entrada y una salida por producto)
+INSERT INTO movimiento_inventario (fecha, tipo_movimiento, cantidad, producto_id, ubicacion_id) VALUES
+('2024-09-01 10:00:00', 'INGRESO', 50, 1, 1),
+('2024-09-02 11:00:00', 'SALIDA', 10, 1, 1),
+('2024-09-03 12:00:00', 'INGRESO', 40, 2, 2),
+('2024-09-04 13:00:00', 'SALIDA', 20, 2, 2),
+('2024-09-05 14:00:00', 'INGRESO', 30, 3, 3),
+('2024-09-06 15:00:00', 'SALIDA', 5, 3, 3),
+('2024-09-07 16:00:00', 'INGRESO', 60, 4, 4),
+('2024-09-08 17:00:00', 'SALIDA', 15, 4, 4),
+('2024-09-09 18:00:00', 'INGRESO', 70, 5, 5),
+('2024-09-10 19:00:00', 'SALIDA', 25, 5, 5),
+('2024-09-11 10:00:00', 'INGRESO', 20, 6, 6),
+('2024-09-12 11:00:00', 'SALIDA', 10, 6, 6),
+('2024-09-13 12:00:00', 'INGRESO', 80, 7, 7),
+('2024-09-14 13:00:00', 'SALIDA', 30, 7, 7),
+('2024-09-15 14:00:00', 'INGRESO', 90, 8, 8),
+('2024-09-16 15:00:00', 'SALIDA', 40, 8, 8),
+('2024-09-17 16:00:00', 'INGRESO', 100, 9, 9),
+('2024-09-18 17:00:00', 'SALIDA', 50, 9, 9),
+('2024-09-19 18:00:00', 'INGRESO', 110, 10, 10),
+('2024-09-20 19:00:00', 'SALIDA', 55, 10, 10);
