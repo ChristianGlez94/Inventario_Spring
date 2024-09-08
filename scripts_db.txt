@@ -1,0 +1,30 @@
+CREATE DATABASE inventario;
+
+USE inventario;
+
+CREATE TABLE productos (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    codigo VARCHAR(100) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10, 2) NOT NULL,
+    cantidad INT NOT NULL
+);
+
+CREATE TABLE ubicaciones (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    sector VARCHAR(100) NOT NULL,
+    seccion VARCHAR(100) NOT NULL,
+    codigo_barras VARCHAR(255)
+);
+
+CREATE TABLE movimientos_inventario (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    tipo_movimiento ENUM('INGRESO', 'SALIDA') NOT NULL,
+    cantidad INT NOT NULL,
+    producto_id BIGINT,
+    ubicacion_id BIGINT,
+    FOREIGN KEY (producto_id) REFERENCES productos(id),
+    FOREIGN KEY (ubicacion_id) REFERENCES ubicaciones(id)
+);
