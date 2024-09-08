@@ -15,6 +15,10 @@ public class Producto {
     private Double precio;
     private Integer cantidad;
 
+    @ManyToOne
+    @JoinColumn(name = "ubicacion_id", nullable = false)
+    private Ubicacion ubicacion;
+
     // Getters y Setters
 
     public Long getId() {
@@ -63,5 +67,13 @@ public class Producto {
 
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public Ubicacion getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(Ubicacion ubicacion) {
+        this.ubicacion = ubicacion;
     }
 }
