@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar Ubicaciones</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Gestionar Ubicaciones</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="registrar_producto.html">Registrar Producto</a></li>
+            <li><a href="gestionar_movimientos.html">Gestionar Movimientos</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Agregar o Actualizar Ubicación</h2>
+        <form id="ubicacionForm">
+            <input type="hidden" id="ubicacionId" name="ubicacionId">
+            <label for="sector">Sector:</label>
+            <input type="text" id="sector" name="sector" required>
+
+            <label for="seccion">Sección:</label>
+            <input type="text" id="seccion" name="seccion" required>
+
+            <label for="codigo_barras">Código de Barras:</label>
+            <input type="text" id="codigo_barras" name="codigo_barras" required>
+
+            <button type="submit">Guardar Ubicación</button>
+        </form>
+        <div class="message" id="message"></div>
+    </section>
+
+    <section>
+        <h2>Ubicaciones Existentes</h2>
+        <table id="ubicacionesTable">
+            <thead>
+                <tr>
+                    <th>Sector</th>
+                    <th>Sección</th>
+                    <th>Código de Barras</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se llenarán las ubicaciones existentes -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="/js/ubicacion.js"></script>
+</body>
+</html>
