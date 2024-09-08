@@ -4,29 +4,26 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "movimientos_inventario")
 public class MovimientoInventario {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private LocalDateTime fecha;
-    
-    @Enumerated(EnumType.STRING)
-    private TipoMovimiento tipoMovimiento;
 
-    private Integer cantidad;
+    @Column(nullable = false)
+    private String tipoMovimiento; // Puede ser "INGRESO" o "SALIDA"
 
-    @ManyToOne
-    @JoinColumn(name = "producto_id")
-    private Producto producto;
+    @Column(nullable = false)
+    private int cantidad;
 
     @ManyToOne
-    @JoinColumn(name = "ubicacion_id")
+    @JoinColumn(name = "ubicacion_id", nullable = false)
     private Ubicacion ubicacion;
 
     // Getters y Setters
-
     public Long getId() {
         return id;
     }
@@ -43,28 +40,20 @@ public class MovimientoInventario {
         this.fecha = fecha;
     }
 
-    public TipoMovimiento getTipoMovimiento() {
+    public String getTipoMovimiento() {
         return tipoMovimiento;
     }
 
-    public void setTipoMovimiento(TipoMovimiento tipoMovimiento) {
+    public void setTipoMovimiento(String tipoMovimiento) {
         this.tipoMovimiento = tipoMovimiento;
     }
 
-    public Integer getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(Integer cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
-    }
-
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
     }
 
     public Ubicacion getUbicacion() {
@@ -73,11 +62,5 @@ public class MovimientoInventario {
 
     public void setUbicacion(Ubicacion ubicacion) {
         this.ubicacion = ubicacion;
-    }
-
-    // Enum for TipoMovimiento
-    public enum TipoMovimiento {
-        INGRESO,
-        SALIDA
     }
 }

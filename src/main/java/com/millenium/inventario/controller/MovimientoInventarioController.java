@@ -1,9 +1,9 @@
 package com.millenium.inventario.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 import com.millenium.inventario.model.MovimientoInventario;
 import com.millenium.inventario.service.MovimientoInventarioService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,17 +15,22 @@ public class MovimientoInventarioController {
     private MovimientoInventarioService movimientoInventarioService;
 
     @GetMapping
-    public List<MovimientoInventario> obtenerTodosLosMovimientos() {
-        return movimientoInventarioService.obtenerTodosLosMovimientos();
+    public List<MovimientoInventario> listarMovimientos() {
+        return movimientoInventarioService.listarTodos();
     }
 
     @PostMapping
     public MovimientoInventario registrarMovimiento(@RequestBody MovimientoInventario movimientoInventario) {
-        return movimientoInventarioService.guardarMovimiento(movimientoInventario);
+        return movimientoInventarioService.guardar(movimientoInventario);
+    }
+
+    @GetMapping("/{id}")
+    public MovimientoInventario obtenerMovimiento(@PathVariable Long id) {
+        return movimientoInventarioService.obtenerPorId(id);
     }
 
     @DeleteMapping("/{id}")
     public void eliminarMovimiento(@PathVariable Long id) {
-        movimientoInventarioService.eliminarMovimiento(id);
+        movimientoInventarioService.eliminar(id);
     }
 }

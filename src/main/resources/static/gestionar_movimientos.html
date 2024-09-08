@@ -18,13 +18,50 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="registrar_producto.html">Registrar Producto</a></li>
             <li><a href="gestionar_ubicaciones.html">Gestionar Ubicaciones</a></li>
+            <li><a href="gestionar_movimientos.html">Gestionar Movimientos</a></li>
         </ul>
     </nav>
 
-    <!-- Aquí iría el contenido para gestionar movimientos -->
+    <section>
+        <h2>Registrar Movimiento de Inventario</h2>
+        <form id="movimientoForm">
+            <label for="tipoMovimiento">Tipo de Movimiento:</label>
+            <select id="tipoMovimiento" name="tipoMovimiento">
+                <option value="INGRESO">Ingreso</option>
+                <option value="SALIDA">Salida</option>
+            </select>
+            <br>
 
-    <footer>
-        <p>&copy; 2024 Sistema de Inventarios. Todos los derechos reservados.</p>
-    </footer>
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" name="cantidad" required>
+            <br>
+
+            <label for="ubicacion">Ubicación:</label>
+            <select id="ubicacion" name="ubicacion"></select>
+            <br>
+
+            <button type="submit">Registrar Movimiento</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Movimientos Registrados</h2>
+        <table id="movimientosTable">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Tipo</th>
+                    <th>Cantidad</th>
+                    <th>Ubicación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se llenarán los movimientos registrados -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="/js/movimientos.js"></script>
 </body>
 </html>
