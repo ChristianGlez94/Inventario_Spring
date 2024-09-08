@@ -15,24 +15,34 @@
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="registrar_producto.html">Registrar Producto</a></li>
+            <li><a href="gestionar_ubicaciones.html">Gestionar Ubicaciones</a></li>
             <li><a href="gestionar_movimientos.html">Gestionar Movimientos</a></li>
         </ul>
     </nav>
 
     <section>
-        <h2>Agregar o Actualizar Ubicación</h2>
-        <form id="ubicacionForm">
+        <h2>Formulario para Gestionar Ubicaciones</h2>
+        <form id="ubicacionForm" class="form-grid">
             <input type="hidden" id="ubicacionId" name="ubicacionId">
-            <label for="sector">Sector:</label>
-            <input type="text" id="sector" name="sector" required>
 
-            <label for="seccion">Sección:</label>
-            <input type="text" id="seccion" name="seccion" required>
+            <div class="form-group">
+                <label for="sector">Sector:</label>
+                <input type="text" id="sector" name="sector" required>
+            </div>
 
-            <label for="codigo_barras">Código de Barras:</label>
-            <input type="text" id="codigo_barras" name="codigo_barras" required>
+            <div class="form-group">
+                <label for="seccion">Sección:</label>
+                <input type="text" id="seccion" name="seccion" required>
+            </div>
 
-            <button type="submit">Guardar Ubicación</button>
+            <div class="form-group">
+                <label for="codigo_barras">Código de Barras:</label>
+                <input type="text" id="codigo_barras" name="codigo_barras" required>
+            </div>
+
+            <div class="form-group full-width">
+                <button type="submit" class="submit-btn">Guardar Ubicación</button>
+            </div>
         </form>
         <div class="message" id="message"></div>
     </section>

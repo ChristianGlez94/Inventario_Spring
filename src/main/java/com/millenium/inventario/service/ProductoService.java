@@ -23,10 +23,8 @@ public class ProductoService {
     }
 
     public Producto guardarProducto(Producto producto) {
-        // Asegurémonos de que la ubicación exista y sea válida
         Ubicacion ubicacion = ubicacionRepository.findById(producto.getUbicacion().getId())
                 .orElseThrow(() -> new RuntimeException("Ubicación no encontrada"));
-        
         producto.setUbicacion(ubicacion);
         return productoRepository.save(producto);
     }
@@ -51,5 +49,10 @@ public class ProductoService {
 
     public void eliminarProducto(Long id) {
         productoRepository.deleteById(id);
+    }
+
+    public Producto obtenerProductoPorId(Long id) {
+        return productoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
     }
 }

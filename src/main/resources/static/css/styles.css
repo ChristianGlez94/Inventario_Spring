@@ -23,13 +23,10 @@ h1 {
     font-size: 2em;
 }
 
-nav {
-    margin: 20px 0;
-}
-
 nav ul {
     list-style-type: none;
     padding: 0;
+    margin: 20px 0;
     display: flex;
     gap: 15px;
 }
@@ -51,6 +48,90 @@ nav ul li a:hover {
     background-color: #0056b3;
 }
 
+section {
+    width: 90%;
+    max-width: 800px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+button.submit-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    font-size: 1em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.submit-btn:hover {
+    background-color: #218838;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #28a745;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
+
+.message {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: red;
+}
+
 footer {
     margin-top: auto;
     background-color: #28a745;
@@ -59,4 +140,53 @@ footer {
     width: 100%;
     text-align: center;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos adicionales para los botones de la tabla */
+.btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #007bff;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 5px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn-save {
+    background-color: #28a745; /* Verde para guardar */
+}
+
+.btn-save:hover {
+    background-color: #218838;
+}
+
+.btn-cancel {
+    background-color: #dc3545; /* Rojo para cancelar */
+}
+
+.btn-cancel:hover {
+    background-color: #c82333;
+}
+
+.btn-update {
+    background-color: #ffc107; /* Amarillo para actualizar */
+}
+
+.btn-update:hover {
+    background-color: #e0a800;
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Rojo para eliminar */
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
 }

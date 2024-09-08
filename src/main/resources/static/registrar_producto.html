@@ -14,6 +14,7 @@
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
+            <li><a href="registrar_producto.html">Registrar Producto</a></li>
             <li><a href="gestionar_ubicaciones.html">Gestionar Ubicaciones</a></li>
             <li><a href="gestionar_movimientos.html">Gestionar Movimientos</a></li>
         </ul>
@@ -21,29 +22,45 @@
 
     <section>
         <h2>Formulario para Registrar Producto</h2>
-        <form id="productoForm">
-            <label for="nombre">Nombre del Producto:</label>
-            <input type="text" id="nombre" name="nombre" required>
+        <form id="productoForm" class="form-grid">
+            <input type="hidden" id="productoId" name="productoId">
 
-            <label for="precio">Precio:</label>
-            <input type="number" id="precio" name="precio" required>
+            <div class="form-group">
+                <label for="nombre">Nombre del Producto:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
 
-            <label for="descripcion">Descripción:</label>
-            <input type="text" id="descripcion" name="descripcion">
+            <div class="form-group">
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" name="precio" required>
+            </div>
 
-            <label for="cantidad">Cantidad:</label>
-            <input type="number" id="cantidad" name="cantidad" required>
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <input type="text" id="descripcion" name="descripcion">
+            </div>
 
-            <label for="codigo">Código:</label>
-            <input type="text" id="codigo" name="codigo" required>
+            <div class="form-group">
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" required>
+            </div>
 
-            <label for="ubicacion">Ubicación:</label>
-            <select id="ubicacion" name="ubicacion" required>
-                <option value="">Seleccione una ubicación</option>
-                <!-- Las ubicaciones se cargarán dinámicamente -->
-            </select>
+            <div class="form-group">
+                <label for="codigo">Código:</label>
+                <input type="text" id="codigo" name="codigo" required>
+            </div>
 
-            <button type="submit">Guardar Producto</button>
+            <div class="form-group">
+                <label for="ubicacion">Ubicación:</label>
+                <select id="ubicacion" name="ubicacion" required>
+                    <option value="">Seleccione una ubicación</option>
+                    <!-- Las ubicaciones se cargarán dinámicamente -->
+                </select>
+            </div>
+
+            <div class="form-group full-width">
+                <button type="submit" class="submit-btn">Guardar Producto</button>
+            </div>
         </form>
         <div class="message" id="message"></div>
     </section>

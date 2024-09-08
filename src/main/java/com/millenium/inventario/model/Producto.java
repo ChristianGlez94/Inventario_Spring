@@ -20,7 +20,6 @@ public class Producto {
     private Ubicacion ubicacion;
 
     // Getters y Setters
-
     public Long getId() {
         return id;
     }
