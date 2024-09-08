@@ -26,22 +26,17 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-security' // Para manejo de autenticación y seguridad
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // Para Thymeleaf (si utilizas vistas Thymeleaf)
+	implementation 'com.itextpdf:itext7-core:7.2.3' // Para la generación de PDFs
+	implementation 'org.springframework.security:spring-security-crypto' // Para encriptación de contraseñas
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	implementation 'com.itextpdf:itext7-core:7.2.3'
 	runtimeOnly 'com.mysql:mysql-connector-j'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-
-
-
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
-
-
 
 tasks.named('test') {
 	useJUnitPlatform()
