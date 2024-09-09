@@ -1,0 +1,43 @@
+-- Crear base de datos
+CREATE DATABASE inventario;
+
+-- Usar la base de datos inventario
+USE inventario;
+
+-- Crear tabla de Usuarios
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    role VARCHAR(50) NOT NULL
+);
+
+-- Crear tabla de Productos
+CREATE TABLE productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    codigo VARCHAR(50) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10, 2) NOT NULL,
+    cantidad INT NOT NULL
+);
+
+-- Crear tabla de Ubicaciones
+CREATE TABLE ubicaciones (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sector VARCHAR(50) NOT NULL,
+    seccion VARCHAR(50) NOT NULL,
+    codigoBarras VARCHAR(50) NOT NULL
+);
+
+-- Crear tabla de Movimientos de Inventario
+CREATE TABLE movimientos_inventario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    tipoMovimiento ENUM('Ingreso', 'Salida') NOT NULL,
+    cantidad INT NOT NULL,
+    producto_id INT,
+    ubicacion_id INT,
+    FOREIGN KEY (producto_id) REFERENCES productos(id),
+    FOREIGN KEY (ubicacion_id) REFERENCES ubicaciones(id)
+);
