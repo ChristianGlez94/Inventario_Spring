@@ -38,3 +38,11 @@ Sistema de inventarios construido con Spring Boot para el backend y HTML, CSS, y
 
 Graciasssssssssss por la oportunidad, trate de cubrir todos los requisitos pero si me quedo pendiente mejorar la logica de gestion de los movimientos y hacer un reporte mas robusto pero ahí va mi mejor esfuerzo.
 
+![Login](./screenshots/a.png)
+![Home](./screenshots/b.png)
+![Registro](./screenshots/c.png)
+![Ubicaciones](./screenshots/d.png)
+![Otras](./screenshots/e.png)
+![Otras](./screenshots/f.png)
+![Otras](./screenshots/g.png)
+
