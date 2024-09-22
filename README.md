@@ -36,8 +36,6 @@ Sistema de inventarios construido con Spring Boot para el backend y HTML, CSS, y
 
 - Si tienes un cortafuegos activo, podrías necesitar desactivarlo temporalmente.
 
-Graciasssssssssss por la oportunidad, trate de cubrir todos los requisitos pero si me quedo pendiente mejorar la logica de gestion de los movimientos y hacer un reporte mas robusto pero ahí va mi mejor esfuerzo.
-
 ![Login](./screenshots/a.png)
 ![Home](./screenshots/b.png)
 ![Registro](./screenshots/c.png)
